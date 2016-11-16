@@ -1,0 +1,62 @@
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" ng-show="!status">
+        <div class="panel-heading">
+            <div class="panel-title">Sign Up</div>
+        </div>
+        <div class="panel-body">
+            <form id="signupform" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="email" class="col-md-3 control-label">Email</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-model="signup.email" name="email" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-model="signup.first_name" name="firstname" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-model="signup.last_name" name="lastname" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-3 control-label">Password</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" ng-model="signup.password" name="passwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="icode" class="col-md-3 control-label">Confirm Password</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" ng-model="signup.confirm_pw" name="confirm_pw" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="col-xs-offset-3" style="color:red">{{errMessage}}</span>
+                    <div class="col-md-offset-3 col-md-9">
+                        <button id="btn-signup" type="button" class="btn btn-info" ng-click="validateSignup()"><i class="icon-hand-right"></i>Sign Up</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                            already have account!
+                            <a ui-sref="login">
+                                            sing in
+                                        </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-info" ng-show="status">
+        <div class="panel-heading">
+            <div class="panel-title">Hi <b>{{signup.first_name}}</b> your account sucessfully Created Click here for <a ui-sref="login">Sign in</a></div>
+        </div>
+    </div>
+</div>

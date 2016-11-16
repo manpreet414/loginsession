@@ -65,7 +65,7 @@ passport.deserializeUser(function(id, cb) {
 });
 
 app.post('/signup', function(req, res) {
-    console.log("inside post /signup", req.body);
+    console.log("Post /signup");
     try {
         var user = req.body;
         user['email'] = user.username;
@@ -88,7 +88,6 @@ app.post('/signup', function(req, res) {
                 res.status(400).send({ "errMessage": "Email ID already exists" });
             } else {
                 db.create(user, function(err, user) {
-                    console.log("user is signup", err, user);
                     if (err) {
                         return cb(err);
                     }
@@ -107,17 +106,17 @@ app.post('/login', passport.authenticate('local', {
 }));
 
 app.get('/me', function(req, res) {
-    console.log("inside /me", req.user);
+    console.log("GET /me");
     res.send(req.user);
 });
 
 app.get('/fail', function(req, res) {
-    console.log("inside /fail", req.user);
+    console.log("GET /fail");
     res.status(400).send({ "errMessage": "Username or Password Does not matched" });
 });
 
 app.get('/logout', function(req, res) {
-    console.log("insie /logout");
+    console.log("GET /logout");
     req.logout();
     res.send({ "sucess": 1 })
 });

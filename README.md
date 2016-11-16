@@ -8,5 +8,4 @@ Node version should be 4.4.4 or more
 4. `$ bower install`
 5. `$ npm start`
 ```
-
 open url in browser : http://localhost:3000
